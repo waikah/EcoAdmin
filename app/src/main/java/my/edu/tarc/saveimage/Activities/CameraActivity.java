@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -65,6 +66,8 @@ public class CameraActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
+    private EditText editTitle;
+    private EditText editDesc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,10 +76,11 @@ public class CameraActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
         imagePreview = (ImageView) findViewById(R.id.imageViewPreview);
+        editTitle = (EditText)findViewById(R.id.editTextTitle);
+        editDesc = (EditText)findViewById(R.id.editTextDescription);
 
         // Assume thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -124,13 +128,13 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
-
     public void dispatchTakePictureIntent(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -148,7 +152,6 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     public void uploadImage(View view){
-
         new PostDataTOServer().execute();
     }
 
@@ -174,6 +177,8 @@ public class CameraActivity extends AppCompatActivity {
             try {
                 postDataParams = new HashMap<String, String>();
                 postDataParams.put("image", imageString);
+                postDataParams.put("title", editTitle.getText().toString());
+                postDataParams.put("description", editDesc.getText().toString());
                 service = new HTTPURLConnection();
                 response = service.ServerData(getString(R.string.url_insertAnnouncent), postDataParams);
 
