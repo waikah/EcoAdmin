@@ -20,9 +20,6 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
-/**
- * Created by admin on 9/9/2015.
- */
 public class HTTPURLConnection {
     String response="";
     URL url;

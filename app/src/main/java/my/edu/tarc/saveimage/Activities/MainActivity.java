@@ -76,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), CameraActivity.class);
-                startActivity(intent);
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getBaseContext(), CameraActivity.class);
+                        startActivity(intent);
             }
         });
     }
@@ -154,21 +154,21 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-
-
                         try{
                             //Clear list
                             imageArrayList.clear();
 
                             for(int i=0; i < response.length();i++){
                                 JSONObject imageResponse = (JSONObject) response.get(i);
+
                                 int id = imageResponse.getInt("id");
                                 String image = imageResponse.getString("image");
+                                String remark = imageResponse.getString("remark");
 
                                 ImageFile imageFile = new ImageFile();
                                 imageFile.setId(id);
                                 imageFile.setImage(image);
-                               
+                               imageFile.setRemark(remark);
 
                                 imageArrayList.add(imageFile);
                             }

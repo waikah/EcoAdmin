@@ -76,6 +76,7 @@ public class CameraActivity extends AppCompatActivity {
 
         // Assume thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -123,13 +124,13 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
+
     public void dispatchTakePictureIntent(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -147,6 +148,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     public void uploadImage(View view){
+
         new PostDataTOServer().execute();
     }
 
@@ -173,7 +175,7 @@ public class CameraActivity extends AppCompatActivity {
                 postDataParams = new HashMap<String, String>();
                 postDataParams.put("image", imageString);
                 service = new HTTPURLConnection();
-                response = service.ServerData(getString(R.string.url_insert_image), postDataParams);
+                response = service.ServerData(getString(R.string.url_insertAnnouncent), postDataParams);
 
             } catch (Exception e) {
                 e.printStackTrace();

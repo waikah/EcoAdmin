@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="my.edu.tarc.saveimage.Controller.Activities.CameraActivity">
 
+
     <ImageView
         android:id="@+id/imageViewPreview"
         android:layout_width="wrap_content"
@@ -36,8 +37,8 @@
         android:id="@+id/buttonUpload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="uploadImage"
         android:text="@string/upload"
         app:layout_constraintBottom_toBottomOf="parent"

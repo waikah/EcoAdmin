@@ -7,6 +7,7 @@ package my.edu.tarc.saveimage.Model;
 public class ImageFile {
     private int id;
     private String image;
+    private String remark;
 
     public ImageFile() {
     }
@@ -14,6 +15,7 @@ public class ImageFile {
     public ImageFile(int id, String image) {
         this.id = id;
         this.image = image;
+        this.remark=remark;
     }
 
     public int getId() {
@@ -30,5 +32,13 @@ public class ImageFile {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

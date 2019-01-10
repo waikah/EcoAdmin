@@ -1,11 +1,17 @@
 <resources>
-    <string name="app_name">Save Image</string>
+    <string name="app_name">Eco Admin</string>
     <string name="upload">Upload</string>
     <string name="refresh">Refresh</string>
     <string name="action_settings">Settings</string>
-    <string name="url_get_all_images">http://bait2073.000webhostapp.com/getAllImages.php</string>
+<!--    <string name="url_get_all_images">http://bait2073.000webhostapp.com/getAllImages.php</string>
     <string name="url_get_image">http://bait2073.000webhostapp.com/getImage.php</string>
     <string name="url_insert_image">http://bait2073.000webhostapp.com/insertImage.php</string>
-    <string name="url_get_rp_image">https://jinsien-4896.000webhostapp.com/getImageFile.php</string>
+    <string name="url_get_rp_image">https://jinsien-4896.000webhostapp.com/getImageFile.php</string>-->
     <string name="cam">Camera</string>
+    <string name="url_get_all_images">https://ecobinassignment.000webhostapp.com/getAllImages.php</string>
+    <string name="url_get_image">https://ecobinassignment.000webhostapp.com/getImage.php</string>
+    <string name="url_insert_image">https://ecobinassignment.000webhostapp.com/insertImage.php</string>
+    <string name="url_get_rp_image">https://ecobinassignment.000webhostapp.com/getImageFile.php</string>
+
+    <string name="url_insertAnnouncent">https://ecobinassignment.000webhostapp.com/insertAnnouncementImage.php</string>
 </resources>

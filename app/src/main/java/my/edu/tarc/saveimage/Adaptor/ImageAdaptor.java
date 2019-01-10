@@ -38,12 +38,14 @@ public class ImageAdaptor extends ArrayAdapter<ImageFile> {
         View rowView = inflater.inflate(R.layout.image_layout, parent, false);
 
         TextView textViewID = (TextView) rowView.findViewById(R.id.textViewID);
+        TextView textViewRemark = (TextView) rowView.findViewById(R.id.textViewRemark);
         //ImageView imageView = (ImageView) rowView.findViewById(R.id.imageView);
 
         ImageFile imageFile;
         imageFile = getItem(position);
 
         textViewID.setText("ID:"+ imageFile.getId());
+        textViewRemark.setText( imageFile.getRemark());
         return rowView;
     }
 }

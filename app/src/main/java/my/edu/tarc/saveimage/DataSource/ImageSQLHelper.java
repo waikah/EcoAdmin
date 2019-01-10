@@ -9,9 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class ImageSQLHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "album.db";
-
+        public static final int DATABASE_VERSION = 1;
+        public static final String DATABASE_NAME = "album.db";
+       //public static final String DATABASE_NAME = "id8355092_ecobin.db";
     public ImageSQLHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -20,7 +20,7 @@ public class ImageSQLHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
                 "create table album " +
-                        "(id integer, image text)");
+                        "(id integer, image text, remark text)");
     }
 
     @Override

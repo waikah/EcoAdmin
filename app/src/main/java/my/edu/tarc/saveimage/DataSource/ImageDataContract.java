@@ -9,4 +9,5 @@ public class ImageDataContract {
 
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_IMAGE="image";
+    public static final String COLUMN_NAME = "remark";
 }
